@@ -7,6 +7,7 @@ from projects.search import search_projects
 from projects.view import view_projects
 from validations import validate_input_string_nosb
 
+loggedIn = False
 
 # user should register or login
 def main_menu():
