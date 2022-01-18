@@ -1,4 +1,5 @@
 import re
+from datetime import date
 
 
 def validate_input_string(prompt):
@@ -12,6 +13,13 @@ def validate_input_string_nosb(prompt):
     while True:
         word = input(prompt)
         if word.isalpha() and not word.isspace():
+            return word
+
+
+def validate_input_one_line(prompt):
+    while True:
+        word = input(prompt)
+        if word.isprintable():
             return word
 
 
@@ -47,3 +55,18 @@ def validate_exist_mail(email):
                 exist = True
                 break
     return exist
+
+
+def validate_input_date(prompt):
+    while True:
+        word = input(prompt)
+        try:
+            usr_date = date.fromisoformat(word)
+        except:
+            print("Wrong date format")
+        else:
+            if usr_date >= date.today():
+                return usr_date
+            else:
+                print("You cannot start a project from the past")
+

@@ -7,17 +7,16 @@ from projects.search import search_projects
 from projects.view import view_projects
 from validations import validate_input_string_nosb
 
-loggedIn = False
-
 # user should register or login
 def main_menu():
+    logged_user_data = []
     print("\t<======================>\n\t "
           "| welcome to our app |"
           "\n\t<======================>\n")
     response = validate_input_string_nosb("- To login choose ( L )\n"
                                           "- To Register choose (R)\n")
     if response in "lL":
-        login_user()
+        logged_user_data = login_user()
     elif response in "rR":
         register_user()
     else:
@@ -34,7 +33,7 @@ def main_menu():
                                                  "\t- search for a specifi project\t=> S\n"
                                                  "\t- delete a project of yours\t=> D\n")
     if second_response in "cC":
-        create_project()
+        create_project(logged_user_data)
     elif second_response in "vV":
         view_projects()
     elif second_response in "eE":

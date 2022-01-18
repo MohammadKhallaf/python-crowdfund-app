@@ -7,7 +7,7 @@ def login_user():
     # globalize the vars to affect all sections
     # there is a problem .. !
     global loggedIn
-    global user_details
+    global logged_mail
     print("Hello to login menu")
     mail = validate_input_mail("Enter your email :\t")
     if not validate_exist_mail(mail):
@@ -26,4 +26,4 @@ def login_user():
             print(f"Hello {user_details[2]} {user_details[3]} !")
             break
         print("Not correct\n")
-
+    return user_details[0],user_details[2],user_details[3]
