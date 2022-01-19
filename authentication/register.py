@@ -1,5 +1,6 @@
-from validations import validate_input_string_nosb, validate_input_mail, validate_phone_num
 import getpass
+
+from validations import validate_input_string_nosb, validate_input_mail, validate_phone_num
 
 
 def register_user():

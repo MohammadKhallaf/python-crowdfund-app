@@ -20,7 +20,7 @@ def delete_project(user_details):
         print("Wrong choice number !")
     else:
         to_delete = user_project_list[choice - 1][1]
-        print(f"you will delete:\t{to_delete}")
+        print(f"you will delete:\t{user_project_list[choice - 1][2]}")
         answer = validate_input_string_nosb("Confirm? (Y / n)\t")
         if answer in 'yY':
             print("deleting")

@@ -30,7 +30,7 @@ def edit_project(user_details):
         # get the 2nd col in the last line {project id}
         project_id = project_old_id
 
-        print(f"you will update:\t{to_update}")
+        print(f"you will update project:\t{user_project_list[choice - 1][2]}")
         answer = validate_input_string_nosb("Confirm? (Y / n)\t")
         if answer in 'yY':
             print("updating")
@@ -63,5 +63,4 @@ def edt_project(mail, project_id, data):
             project = new_prj
 
         new_list.append(project)
-    print(new_list)
     return new_list
