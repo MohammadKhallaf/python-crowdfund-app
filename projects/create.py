@@ -1,3 +1,4 @@
+from projects.db_queries import get_user_projects
 from validations import validate_input_string, validate_input_num, validate_input_date, validate_input_one_line
 
 
@@ -17,8 +18,14 @@ def create_project(user_details):
                                           "YYYY-MM-DD\n\t\t\t")
         if project_end <= project_start:
             print("You can't end the project before it starts")
-    with open("database/projects.txt") as fileObj:
-        project_id = len(fileObj.readlines())
+
+    user_project_list = get_user_projects(user_details[0])
+    # get the 2nd col in the last line {project id}
+    if len(user_project_list):
+        last_id = int(user_project_list[-1][1])
+        project_id = last_id + 1
+    else:
+        project_id = 0
 
     with open("database/projects.txt", "a") as fileObj:
         fileObj.write(f"{user_details[0]};"

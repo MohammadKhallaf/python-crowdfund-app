@@ -41,7 +41,7 @@ def main_menu():
     elif second_response in "sS":
         search_projects()
     elif second_response in "dD":
-        delete_project()
+        delete_project(logged_user_data)
     else:
         print("please choose a right value from the menu !")
 
