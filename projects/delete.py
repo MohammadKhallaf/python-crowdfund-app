@@ -19,7 +19,7 @@ def delete_project(user_details):
     if choice > counter or choice < 1:
         print("Wrong choice number !")
     else:
-        to_delete = user_project_list[choice - 1][2]
+        to_delete = user_project_list[choice - 1][1]
         print(f"you will delete:\t{to_delete}")
         answer = validate_input_string_nosb("Confirm? (Y / n)\t")
         if answer in 'yY':
@@ -35,11 +35,12 @@ def delete_project(user_details):
             print("deleted")
 
 
-def del_project(mail, to_delete):
+# delete project with the composite PK ( mail & id )
+def del_project(mail, project_id):
     new_list = []
     total_projects = get_all_projects()
     for project in total_projects:
-        if project[2] == to_delete and project[0] == mail:
+        if project[1] == project_id and project[0] == mail:
             continue
         new_list.append(project)
     return new_list

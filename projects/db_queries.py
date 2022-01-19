@@ -27,3 +27,15 @@ def update_db(new_db):
     with open("database/projects.txt", "w") as fileObj:
         for line in new_db:
             fileObj.write(";".join(line))
+
+
+def append_record(mail, id, title, details, target, start, end):
+    with open("database/projects.txt", "a") as fileObj:
+        fileObj.write(f"{mail};"
+                      f"{id};"
+                      f"{title};"
+                      f"{details};"
+                      f"{target};"
+                      f"{start};"
+                      f"{end};"
+                      f"\n")

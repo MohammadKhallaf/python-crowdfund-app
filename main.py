@@ -38,7 +38,7 @@ def main_menu():
     elif second_response in "vV":
         view_projects()
     elif second_response in "eE":
-        edit_project()
+        edit_project(logged_user_data)
     elif second_response in "sS":
         search_projects()
     elif second_response in "dD":
